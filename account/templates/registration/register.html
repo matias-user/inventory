@@ -1,5 +1,7 @@
 {% extends 'common/base.html' %}
 
+{% block title %}Registro de usuarios{% endblock %}
+
 {% block main %}
 <h2>Registro de usuario</h2>
 
@@ -27,9 +29,9 @@
         <button class="btn btn-primary" >
             Registrar
         </button>
-        <button class="btn btn-secondary" >
+        <a href="{% url 'inventory:home' %}" class="btn btn-secondary" >
             Volver
-        </button>
+        </a>
 
     </div>   
 </form>
