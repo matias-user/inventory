@@ -1,0 +1,14 @@
+{% extends 'common/base.html' %}
+
+{% block title %}Crear{% endblock %}
+
+{% block main %}
+    <form method="post">
+        <div class="mb-3"></div> 
+        <div class="mb-3"></div> 
+        <div class="mb-3"></div> 
+
+        <button class="btn btn-primary" type="submit" >Crear</button>
+        <a class="btn btn-secondary" href="{% url 'inventory:inventory' %}" >Volver</a>
+    </form>
+{% endblock %}
