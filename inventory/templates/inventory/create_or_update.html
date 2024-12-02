@@ -1,28 +1,41 @@
 {% extends 'common/base.html' %}
 
-{% block title %}Crear{% endblock %}
+{% block title %}
+{% if product %}
+    Editar
+{% else %}
+    Crear
+{% endif %}
+{% endblock %}
 
 {% block main %}
     <form method="post">
         {% csrf_token %}
         <div class="mb-3">
             <label for="name">Nombre</label>
-            <input class="form-control" type="text" name="name" id="name" >
+            <input class="form-control" type="text" name="name" id="name" value="{{ form.name.value|default:'' }}" >
         </div> 
         <div class="mb-3">
             <label for="price">Precio</label>
-            <input class="form-control" type="number" name="price" id="price">
+            <input class="form-control" type="number" name="price" id="price" value="{{ form.price.value|default:0 }}" >
         </div> 
         <div class="mb-3">
             <label for="quantity">Cantidad</label>
-            <input class="form-control" type="number" name="quantity" id="quantity">
+            <input class="form-control" type="number" name="quantity" id="quantity" value="{{ form.quantity.value|default:0 }}" >
         </div> 
         <div class="mb-3">
             <label for="description">Descripción</label>
-            <textarea class="form-control" type="text" name="description" id="description"></textarea>
+            <textarea class="form-control" type="text" name="description" id="description" 
+                value="{{ form.description.value|default:'' }}" ></textarea>
         </div> 
 
-        <button class="btn btn-primary" type="submit" >Crear</button>
+        <button class="btn btn-primary" type="submit" >
+            {% if product %}
+                Editar
+            {% else %}
+                Crear
+            {% endif %}
+        </button>
         <a class="btn btn-secondary" href="{% url 'inventory:inventory' %}" >Volver</a>
     </form>
 {% endblock %}

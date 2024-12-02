@@ -23,7 +23,8 @@ def create_or_update(request, product_id=None):
             form.save()
             return redirect('inventory:inventory')
     else:
+        print(product)
         form = ProductoForm(instance=product)
 
 
-    return render(request, 'inventory/create_or_update.html', {'form':form})
+    return render(request, 'inventory/create_or_update.html', {'form':form, 'product':product})

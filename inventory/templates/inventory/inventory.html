@@ -12,6 +12,7 @@
                     <th>Precio</th>
                     <th>Cantidad</th>
                     <th>Descripción</th>
+                    <th>Acciones</th>
                 </tr>
                 <tr>
                     {% for product in products %}
@@ -19,6 +20,9 @@
                         <td>{{ product.price }}</td>
                         <td>{{ product.quantity }}</td>
                         <td>{{ product.description }}</td>
+                        <td>
+                            <a class="btn btn-secondary" href="{% url 'inventory:update' product.id %}">Editar</a>
+                        </td>
                     {% endfor %}
                 </tr>
             </table>
