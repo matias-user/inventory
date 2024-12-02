@@ -22,6 +22,7 @@ class Product(models.Model):
     name = models.CharField( blank=False, max_length=100, verbose_name='Nombre' )
     description = models.CharField( blank=True, null=True , verbose_name='Descripción', max_length=255 )
     price = models.DecimalField( max_digits=10, decimal_places=2, verbose_name='Precio' )
+    quantity = models.IntegerField( default=0, verbose_name='Cantidad' )
     # category = models.ForeignKey( Category, on_delete=models.CASCADE, verbose_name='Categoría' )
     # supplier = models.ForeignKey( Supplier, on_delete=models.CASCADE, verbose_name='Proveedor' )
 

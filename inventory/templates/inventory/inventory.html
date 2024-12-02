@@ -5,9 +5,23 @@
 {% block main %}
     <h2>Inventario</h2>
     <div class="row">
-
         <div class="col-10">
-    
+            <table class="table table-hover mt-3" >
+                <tr>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                    <th>Cantidad</th>
+                    <th>Descripción</th>
+                </tr>
+                <tr>
+                    {% for product in products %}
+                        <td>{{ product.name }}</td>
+                        <td>{{ product.price }}</td>
+                        <td>{{ product.quantity }}</td>
+                        <td>{{ product.description }}</td>
+                    {% endfor %}
+                </tr>
+            </table>
         </div>
         <div class="col-2">
             {% include 'inventory/sidebar_inventory.html' %}

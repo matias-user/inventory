@@ -5,8 +5,9 @@ from ..models import Product
 
 def all_inventory(request):
 
+    products = Product.objects.all()[:20]
 
-    return render(request, 'inventory/inventory.html')
+    return render(request, 'inventory/inventory.html', {'products': products })
 
 
 def create_or_update(request, product_id=None):
@@ -18,7 +19,6 @@ def create_or_update(request, product_id=None):
 
     if request.method == 'POST':
         form = ProductoForm(request.POST, instance=product)
-        print(form)
         if form.is_valid():
             form.save()
             return redirect('inventory:inventory')
