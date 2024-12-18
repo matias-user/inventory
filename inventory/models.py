@@ -5,10 +5,12 @@ class Supplier(models.Model):
     name = models.CharField( blank=False, max_length=255, verbose_name='Nombre' )
     contact_number = models.CharField( max_length=255, verbose_name='Número de contacto' )
     email = models.CharField( blank=False ,max_length=255, verbose_name='Correo electrónico' )
+    created_date = models.DateTimeField( auto_now_add=True, verbose_name="Fecha de creación" )
+    updated_date = models.DateTimeField( auto_now=True, verbose_name="Fecha de última actualización")
     
     def __str__(self):
         return self.name
-    
+     
 
 class Category(models.Model):
     name = models.CharField( blank=False, max_length=100, verbose_name='Nombre' )
