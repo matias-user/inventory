@@ -3,8 +3,9 @@
 {% block title %}Inicio{% endblock %}
 {% block main %}
     {% if request.user.is_authenticated %}
-        <h2>Hola {{ request.user }}</h2>   
+        <h2>Hola {{ request.user }}</h2>
+    {% else %}
+        <h2>Inicio</h2>
     {% endif %}
 
-    <h1>Hola mundo</h1>
 {% endblock %}
